@@ -1,0 +1,27 @@
+{
+  "name": "escrow-backend",
+  "version": "1.0.0",
+  "description": "REST API + event indexer for the SC6113 escrow marketplace",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "better-sqlite3": "^12.11.1",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.7",
+    "ethers": "^6.17.0",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "jsonwebtoken": "^9.0.3"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  }
+}

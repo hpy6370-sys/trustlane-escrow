@@ -1,0 +1,182 @@
+[
+  {
+    "scenario": "deploy PlatformRegistry",
+    "gasUsed": 688536,
+    "note": "one-off"
+  },
+  {
+    "scenario": "deploy Reputation",
+    "gasUsed": 718102,
+    "note": "one-off"
+  },
+  {
+    "scenario": "deploy EscrowManager",
+    "gasUsed": 2540176,
+    "note": "one-off"
+  },
+  {
+    "scenario": "deploy DisputeResolution",
+    "gasUsed": 1049452,
+    "note": "one-off"
+  },
+  {
+    "scenario": "deploy MockUSDC",
+    "gasUsed": 552576,
+    "note": "one-off"
+  },
+  {
+    "scenario": "registerAs(CLIENT) first time",
+    "gasUsed": 50237,
+    "note": ""
+  },
+  {
+    "scenario": "registerAs(FREELANCER) first time",
+    "gasUsed": 50251,
+    "note": ""
+  },
+  {
+    "scenario": "registerAs(CLIENT) again (no-op)",
+    "gasUsed": 26473,
+    "note": "role already held: no SSTORE"
+  },
+  {
+    "scenario": "createEscrow ETH, 1 milestone(s)",
+    "gasUsed": 159879,
+    "note": ""
+  },
+  {
+    "scenario": "createEscrow ETH, 2 milestone(s)",
+    "gasUsed": 165578,
+    "note": ""
+  },
+  {
+    "scenario": "createEscrow ETH, 3 milestone(s)",
+    "gasUsed": 188377,
+    "note": ""
+  },
+  {
+    "scenario": "createEscrow ETH, 5 milestone(s)",
+    "gasUsed": 233975,
+    "note": ""
+  },
+  {
+    "scenario": "createEscrow ETH, 10 milestone(s)",
+    "gasUsed": 347970,
+    "note": ""
+  },
+  {
+    "scenario": "createEscrow ETH, 20 milestone(s)",
+    "gasUsed": 575960,
+    "note": ""
+  },
+  {
+    "scenario": "mUSDC approve",
+    "gasUsed": 46342,
+    "note": ""
+  },
+  {
+    "scenario": "createEscrow mUSDC, 1 milestone",
+    "gasUsed": 203367,
+    "note": "safeTransferFrom + 2x balanceOf check"
+  },
+  {
+    "scenario": "createEscrow mUSDC, 3 milestones",
+    "gasUsed": 231793,
+    "note": ""
+  },
+  {
+    "scenario": "acceptEscrow",
+    "gasUsed": 35901,
+    "note": ""
+  },
+  {
+    "scenario": "submitMilestone (first submit)",
+    "gasUsed": 39292,
+    "note": ""
+  },
+  {
+    "scenario": "submitMilestone (re-submit)",
+    "gasUsed": 36311,
+    "note": "state unchanged, event only"
+  },
+  {
+    "scenario": "approveMilestone (not last)",
+    "gasUsed": 94449,
+    "note": "first credit to freelancer + fee slot"
+  },
+  {
+    "scenario": "approveMilestone (not last, warm balances)",
+    "gasUsed": 60261,
+    "note": ""
+  },
+  {
+    "scenario": "approveMilestone (last -> Completed + Reputation call)",
+    "gasUsed": 113324,
+    "note": "cross-contract"
+  },
+  {
+    "scenario": "rateCounterparty (Reputation call)",
+    "gasUsed": 44414,
+    "note": "cross-contract"
+  },
+  {
+    "scenario": "withdraw ETH",
+    "gasUsed": 33414,
+    "note": ""
+  },
+  {
+    "scenario": "cancelEscrow",
+    "gasUsed": 58242,
+    "note": ""
+  },
+  {
+    "scenario": "openDispute (Dispute -> Escrow call)",
+    "gasUsed": 134372,
+    "note": "cross-contract"
+  },
+  {
+    "scenario": "submitEvidence",
+    "gasUsed": 39334,
+    "note": ""
+  },
+  {
+    "scenario": "assignArbiter",
+    "gasUsed": 50834,
+    "note": ""
+  },
+  {
+    "scenario": "resolveDispute (Dispute -> Escrow -> Reputation)",
+    "gasUsed": 113782,
+    "note": "2 cross-contract calls"
+  },
+  {
+    "scenario": "claimTimeoutRefund, 10 milestones",
+    "gasUsed": 110898,
+    "note": "loops all milestones"
+  },
+  {
+    "scenario": "claimTimeoutRefund, 2 milestones (never accepted)",
+    "gasUsed": 52699,
+    "note": ""
+  },
+  {
+    "scenario": "setPlatformFee",
+    "gasUsed": 30464,
+    "note": ""
+  },
+  {
+    "scenario": "pause",
+    "gasUsed": 29985,
+    "note": ""
+  },
+  {
+    "scenario": "unpause",
+    "gasUsed": 29965,
+    "note": ""
+  },
+  {
+    "scenario": "withdrawFees ETH",
+    "gasUsed": 39530,
+    "note": ""
+  }
+]

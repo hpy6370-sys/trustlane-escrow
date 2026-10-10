@@ -1,0 +1,50 @@
+# Render Blueprint: one-click deploy of API + static frontend (Sepolia).
+# Render dashboard -> New -> Blueprint -> point at this repo. Fill the `sync: false` values in the UI.
+services:
+  - type: web
+    name: trustlane-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    plan: starter # persistent disks need a paid plan; on free, drop `disk` and the DB is rebuilt by the indexer on restart
+    disk:
+      name: data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_PATH
+        value: /var/data/escrow.db
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CHAIN_ID
+        value: "11155111"
+      - key: RPC_URL
+        sync: false # e.g. https://eth-sepolia.g.alchemy.com/v2/<key>
+      - key: CORS_ORIGINS
+        sync: false # e.g. https://trustlane-web.onrender.com
+      - key: SIWE_DOMAIN
+        sync: false # e.g. trustlane-web.onrender.com
+      - key: CONFIRMATIONS
+        value: "3"
+      - key: LOG_CHUNK
+        value: "500"
+
+  - type: web
+    name: trustlane-web
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        sync: false # e.g. https://trustlane-api.onrender.com
+      - key: VITE_CHAIN_ID
+        value: "11155111"
